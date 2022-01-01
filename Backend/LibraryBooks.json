@@ -1,0 +1,23 @@
+[
+	{
+		"id": 1,
+		"language":"Microsoft .Net",
+		"edition":"third",
+		"library_location": "Dublin",
+		"price": "$ 10"
+	 },
+	 {
+		"id": 2,
+		"language":"Python",
+		"edition":"four",
+		"library_location": "Cork",
+		"price": "$ 15"
+	 },
+	 {
+		"id": 3,
+		"language":"SQL",
+		"edition":"second",
+		"library_location": "Dublin",
+		"price": "$ 13"
+	 }
+]
