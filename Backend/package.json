@@ -1,0 +1,16 @@
+{
+  "name": "ahmed-web-app",
+  "version": "1.0.0",
+  "description": "Web Application for maintaining library books",
+  "main": "express_app.js",
+  "scripts": {
+    "start": "nodemon express_app.js"
+  },
+  "author": "Ahmed",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
+  },
+  "license": "ISC"
+}
