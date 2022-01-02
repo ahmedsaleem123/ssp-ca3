@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Manage Library Books</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.css') }}">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+  <!-- contacts -->
+  <section class="w3l-contact-7">
+    <div class="contacts-9 section-gap">
+      <div class="wrapper">
+        <div class="top-map">
+          <div class="map">
+            <image style="height:300px; width: 520px"
+              src="{{ url_for('static', filename='images/background-img.jpg') }}">
+            </image>
+            <div id="result_tag">
+                <h5>List of the Library Books</h5>
+            <!-- Refer code: https://stackoverflow.com/questions/45558349/flask-display-database-from-python-to-html-->
+              <table>
+              <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>Language</th>
+                  <th>Edition</th>
+                  <th>Location</th>
+                  <th>Price</th>
+              </tr>
+              </thead>
+              <tbody>
+                  {% for row in output_data %}
+                      <tr>
+                          <td>{{row['id']}}</td>
+                          <td>{{row['language']}}</td>
+                          <td>{{row['edition']}}</td>
+                          <td>{{row['library_location']}}</td>
+                          <td>{{row['price']}}</td>
+                      </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+            </div>
+          </div>
+
+        <!-- Downloaded free template from https://w3layouts.com/template-category/personal/ -->
+          <div class="map-content-9">
+            <div class="cont-details">
+              <h5>Manage Library Books</h5>
+              <address>
+                <p><span class="fa fa-user-graduate"></span>Student Name: Ahmed Saleem</p>
+                <p><span class="fa fa-id-badge"></span>Student Id: 2020340</p>
+              </address>
+
+            </div>
+            <form>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+</body>
+
+</html>
