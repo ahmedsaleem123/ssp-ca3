@@ -11,6 +11,10 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
 
+// Fixing CORS issue - https://github.com/expressjs/cors/issues/163
+var cors = require('cors')
+app.use(cors())
+
 // Refer to the routes
 const routes = require('./routes');
 app.use('/api/books', routes);
