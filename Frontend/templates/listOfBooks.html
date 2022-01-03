@@ -6,10 +6,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Manage Library Books</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.css') }}">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+        // Reference: https://stackoverflow.com/questions/20543722/ajax-post-within-jquery-onclick
+        $('#btn').on('click', function (event) {
+            LibraryBook = new Object();
+            LibraryBook.language = $("#programming").val();
+            LibraryBook.edition = $("#edition").val();
+            LibraryBook.library_location = $("#location").val();
+            LibraryBook.price = $("#price").val();
+            $.ajax({
+                url: 'http://localhost:3000/api/books/',
+                type: 'POST',
+                contentType:
+                    "application/json;charset=utf-8",
+                data: JSON.stringify(LibraryBook),
+                success: function (res) {
+                    alert('Library Book Successfully Added');
+                },
+                error: function (request, message, error) {
+                    alert(error);
+                }
+            });
+        });
+        });
+    </script>
 </head>
 <body>
   <!-- contacts -->
@@ -52,16 +78,43 @@
         <!-- Downloaded free template from https://w3layouts.com/template-category/personal/ -->
           <div class="map-content-9">
             <div class="cont-details">
-              <h5>Manage Library Books</h5>
+              <h5>Web App using Node JS and Python Flask- SSP - CA3</h5>
               <address>
                 <p><span class="fa fa-user-graduate"></span>Student Name: Ahmed Saleem</p>
                 <p><span class="fa fa-id-badge"></span>Student Id: 2020340</p>
               </address>
 
             </div>
-            <form>
-
-            </form>
+            <div>
+                <h5>Add New Library Books</h5>
+                <div class="form-group">
+                <label for="programming">Programming Language:</label>
+                <select id="programming" class="form-control">
+                    <option value="Python">Python</option>
+                    <option value="Microsoft .Net">Microsoft .Net</option>
+                    <option value="SQL">SQL</option>
+                    <option value="Node JS">Node JS</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="edition">Book Edition</label>
+                <input type="text" id="edition" class="form-control" />
+            </div>
+                <div class="form-group">
+                <label for="location">Location:</label>
+                <select id="location" class="form-control">
+                    <option value="Dublin">Dublin</option>
+                    <option value="Cork">Cork</option>
+                    <option value="Limerick">Limerick</option>
+                    <option value="Galway">Galway</option>
+                </select>
+                 </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="text" id="price" class="form-control" />
+            </div>
+                <button type="button" id="btn" class="btn btn-contact">Submit</button>
+            </div>
           </div>
         </div>
 

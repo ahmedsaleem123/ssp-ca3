@@ -20,15 +20,15 @@ exports.addBook = (req, res) => {
     var sortedBook = libraryBooks.sort(function(a, b) {
         return b.id - a.id;
       });
-
+    
     // Create a New Library Book
-    const newBook = new LibraryBook({
-        id: sortedBook[0].id + 1,
-        language: req.body.title,
-        edition: req.body.description,
-        library_location: req.body.published,
-        price: req.body.price
-    });
+    const newBook = {
+        "id": sortedBook[0].id + 1,
+        "language": req.body.language,
+        "edition": req.body.edition,
+        "library_location": req.body.library_location,
+        "price": req.body.price
+    };
 
     try
     {
